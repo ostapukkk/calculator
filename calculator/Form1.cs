@@ -128,7 +128,7 @@ namespace calculator
             double dn1, dn2, rez;
 
             rez = 0;
-
+                        
             dn1 = Convert.ToDouble(N1); 
                                               // конвертируем strind в double
             dn2 = Convert.ToDouble(textBox1.Text);
@@ -162,6 +162,25 @@ namespace calculator
             textBox1.Text = rez.ToString();
                        
         }
-              
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            bool znak = true;
+
+            if (znak == true)
+            {
+                textBox1.Text = "-" + textBox1.Text;
+
+                znak = false;
+            }
+            else 
+            if (znak == false)
+            {
+                textBox1.Text = textBox1.Text.Replace("-", "");
+
+                znak = true;
+
+            }
+        }
     }
 }

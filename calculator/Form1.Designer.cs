@@ -332,8 +332,9 @@ namespace calculator
             this.button17.Name = "button17";
             this.button17.Size = new System.Drawing.Size(55, 55);
             this.button17.TabIndex = 21;
-            this.button17.Text = "+/-";
+            this.button17.Text = "±";
             this.button17.UseVisualStyleBackColor = false;
+            this.button17.Click += new System.EventHandler(this.button17_Click);
             // 
             // Form1
             // 
