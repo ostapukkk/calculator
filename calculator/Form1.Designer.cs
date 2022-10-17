@@ -49,6 +49,7 @@ namespace calculator
             this.button15 = new System.Windows.Forms.Button();
             this.button16 = new System.Windows.Forms.Button();
             this.button19 = new System.Windows.Forms.Button();
+            this.button17 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox1
@@ -314,11 +315,25 @@ namespace calculator
             this.button19.Location = new System.Drawing.Point(13, 97);
             this.button19.Name = "button19";
             this.button19.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.button19.Size = new System.Drawing.Size(210, 55);
+            this.button19.Size = new System.Drawing.Size(129, 55);
             this.button19.TabIndex = 20;
             this.button19.Text = "C";
             this.button19.UseVisualStyleBackColor = false;
             this.button19.Click += new System.EventHandler(this.button19_Click);
+            // 
+            // button17
+            // 
+            this.button17.BackColor = System.Drawing.Color.Gray;
+            this.button17.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button17.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button17.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button17.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button17.Location = new System.Drawing.Point(167, 97);
+            this.button17.Name = "button17";
+            this.button17.Size = new System.Drawing.Size(55, 55);
+            this.button17.TabIndex = 21;
+            this.button17.Text = "+/-";
+            this.button17.UseVisualStyleBackColor = false;
             // 
             // Form1
             // 
@@ -326,6 +341,7 @@ namespace calculator
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(315, 472);
+            this.Controls.Add(this.button17);
             this.Controls.Add(this.button19);
             this.Controls.Add(this.button16);
             this.Controls.Add(this.button15);
@@ -380,6 +396,7 @@ namespace calculator
         private System.Windows.Forms.Button button15;
         private System.Windows.Forms.Button button16;
         private System.Windows.Forms.Button button19;
+        private System.Windows.Forms.Button button17;
     }
 }
 

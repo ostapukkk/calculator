@@ -13,12 +13,13 @@ namespace calculator
     
     public partial class Form1 : Form
     {
-        public String D; // действие
+        public string D; // действие
 
-        public String N1; // запомнить число
+        public string N1; // запомнить число
 
         public bool n2; //набираем второе число
 
+        private bool decimalPoint; //проверка на запятую 
         public int test_m(int dn1, int dn2)
         {
             return dn1 + dn2;
@@ -54,6 +55,9 @@ namespace calculator
 
         {
             textBox1.Text = "0";
+
+            decimalPoint = false;
+
         }
 
         private void button18_Click(object sender, EventArgs e)
@@ -63,24 +67,47 @@ namespace calculator
 
         private void button1_Click(object sender, EventArgs e)
         {
-           if (n2)
+            if (n2)
             {
-
                 n2 = false;
 
                 textBox1.Text = "0";
-
             }
+
+
 
             Button B = (Button)sender;
 
+
             if (textBox1.Text == "0")
 
+            {
                 textBox1.Text = B.Text;
+            }
 
             else
-            textBox1.Text = textBox1.Text + B.Text;
+            {
+
+                if (B.Text == ",")
+                {
+                    if (decimalPoint == false)
+                    {
+                        textBox1.Text = textBox1.Text + B.Text;
+
+                        decimalPoint = true;
+
+                    }
+
+                }
+
+                else
+                {
+
+                    textBox1.Text = textBox1.Text + B.Text;
+                }
+            }
         }
+
 
         private void button7_Click(object sender, EventArgs e) // +-*/
         {
@@ -89,6 +116,8 @@ namespace calculator
             D = B.Text;
 
             N1 = textBox1.Text;
+
+            decimalPoint = false;
 
             n2 = true;
 
@@ -128,8 +157,11 @@ namespace calculator
 
             n2 = true;
 
-            textBox1.Text = rez.ToString();
+            decimalPoint = false;
 
+            textBox1.Text = rez.ToString();
+                       
         }
+              
     }
 }

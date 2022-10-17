@@ -23,6 +23,8 @@ namespace test_calc
             Assert.AreEqual(excpected, actual, "test is not correct");
                                
         }
+
+        [TestMethod]
         public void Minus_5and4retern1()
         {
             // test example with inrut data
@@ -39,6 +41,7 @@ namespace test_calc
 
         }
 
+        [TestMethod]
         public void Umnozhenie_5and4retern20()
         {
             // test example with inrut data
@@ -54,6 +57,7 @@ namespace test_calc
             Assert.AreEqual(excpected, actual, "test is not correct");
 
         }
+        [TestMethod]
         public void Delenie_20and5retern4()
         {
             // test example with inrut data
@@ -64,7 +68,7 @@ namespace test_calc
 
             Form1 f = new Form1();
 
-            int actual = f.test_m1(dn1, dn2);
+            int actual = f.test_m3(dn1, dn2);
 
             Assert.AreEqual(excpected, actual, "test is not correct");
 
