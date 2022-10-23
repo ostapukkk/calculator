@@ -10,18 +10,25 @@ namespace test_calc
         [TestMethod]
         public void Sum_5and4retern9()
         {
-           // test example with inrut data
+            // test example with inrut data
 
             int dn1 = 5, dn2 = 4;
 
-            int excpected = 9;
+            string excpected = $"{9:F2}";
 
             Form1 f = new Form1();
 
-            int actual=  f.test_m(dn1, dn2);
+            f.N1 = dn1.ToString();
+
+            f.textBox1.Text = dn2.ToString();
+
+            f.D = "+";
+
+            f.button2_Click(new object(), new EventArgs());
+
+            string actual = f.textBox1.Text;
 
             Assert.AreEqual(excpected, actual, "test is not correct");
-                               
         }
 
         [TestMethod]
@@ -31,14 +38,21 @@ namespace test_calc
 
             int dn1 = 5, dn2 = 4;
 
-            int excpected = 1;
+            string excpected = $"{1:F2}";
 
             Form1 f = new Form1();
 
-            int actual = f.test_m1(dn1, dn2);
+            f.N1 = dn1.ToString();
+
+            f.textBox1.Text = dn2.ToString();
+
+            f.D = "-";
+
+            f.button2_Click(new object(), new EventArgs());
+
+            string actual = f.textBox1.Text;
 
             Assert.AreEqual(excpected, actual, "test is not correct");
-
         }
 
         [TestMethod]
@@ -48,14 +62,21 @@ namespace test_calc
 
             int dn1 = 5, dn2 = 4;
 
-            int excpected = 20;
+            string excpected = $"{20:F2}";
 
             Form1 f = new Form1();
 
-            int actual = f.test_m2(dn1, dn2);
+            f.N1 = dn1.ToString();
+
+            f.textBox1.Text = dn2.ToString();
+
+            f.D = "×";
+
+            f.button2_Click(new object(), new EventArgs());
+
+            string actual = f.textBox1.Text;
 
             Assert.AreEqual(excpected, actual, "test is not correct");
-
         }
         [TestMethod]
         public void Delenie_20and5retern4()
@@ -64,14 +85,22 @@ namespace test_calc
 
             int dn1 = 20, dn2 = 5;
 
-            int excpected = 4;
+            string excpected = $"{4:F2}";
 
             Form1 f = new Form1();
 
-            int actual = f.test_m3(dn1, dn2);
+            f.N1 = dn1.ToString();
+
+            f.textBox1.Text = dn2.ToString();
+
+            f.D = "÷";
+
+            f.button2_Click(new object(), new EventArgs());
+
+            string actual = f.textBox1.Text;
 
             Assert.AreEqual(excpected, actual, "test is not correct");
 
         }
     }
-}
+ }

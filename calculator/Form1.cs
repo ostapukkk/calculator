@@ -1,54 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace calculator
 {
-    
+
     public partial class Form1 : Form
     {
         public string D; // действие
 
-        public string N1; // запомнить число
+        public string N1; // первое число
 
-        public bool n2; //набираем второе число
+        public bool n2Сheck; //проверка на заполнение второго числа
 
-        private bool decimalPoint; //проверка на запятую 
-        public int test_m(int dn1, int dn2)
-        {
-            return dn1 + dn2;
-        }
+        public double N2; // второе число
 
-        public int test_m1(int dn1, int dn2)
-        {
-            return dn1 - dn2;
-        }
+        private bool znak = true;
 
-        public int test_m2(int dn1, int dn2)
-        {
-            return dn1 * dn2;
-        }
+        private bool decimalPoint; //проверка на запятую
 
-        public int test_m3(int dn1, int dn2)
-        {
-            return dn1 / dn2;
-        }
         public Form1()
         {
-            n2 = false;
-
             InitializeComponent();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void button19_Click(object sender, EventArgs e) // очистка
@@ -58,51 +30,53 @@ namespace calculator
 
             decimalPoint = false;
 
-        }
+            znak = false;
 
-        private void button18_Click(object sender, EventArgs e)
-        {
-
+            N2 = 0;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (n2)
+            if (n2Сheck)
             {
-                n2 = false;
+                n2Сheck = false;
 
                 textBox1.Text = "0";
             }
 
-
-
             Button B = (Button)sender;
 
-
-            if (textBox1.Text == "0")
-
+            if (textBox1.Text == "" && B.Text == ",")
             {
-                textBox1.Text = B.Text;
+                textBox1.Text = textBox1.Text;
             }
-
-            else
+            else if (textBox1.Text == "0")
             {
-
-                if (B.Text == ",")
+                if (B.Text == "," && decimalPoint == false)
                 {
-                    if (decimalPoint == false)
-                    {
-                        textBox1.Text = textBox1.Text + B.Text;
+                    textBox1.Text = textBox1.Text + B.Text;
 
-                        decimalPoint = true;
-
-                    }
-
+                    decimalPoint = true;
                 }
-
                 else
                 {
+                    textBox1.Text = B.Text;
+                }
+            }
+            else
+            {
+                if (decimalPoint == true && B.Text == ",")
+                {
+                    textBox1.Text = textBox1.Text;
+                }
+                else if (decimalPoint == false && B.Text == ",")
+                {
+                    textBox1.Text = textBox1.Text + B.Text;
 
+                    decimalPoint = true;
+                }
+                else
+                {
                     textBox1.Text = textBox1.Text + B.Text;
                 }
             }
@@ -119,68 +93,71 @@ namespace calculator
 
             decimalPoint = false;
 
-            n2 = true;
-
+            n2Сheck = true;
         }
 
-        private void button2_Click(object sender, EventArgs e) //кнопка равно
+        public void button2_Click(object sender, EventArgs e) //кнопка равно
         {
-            double dn1, dn2, rez;
+            double dn1, rez;
 
             rez = 0;
-                        
-            dn1 = Convert.ToDouble(N1); 
-                                              // конвертируем strind в double
-            dn2 = Convert.ToDouble(textBox1.Text);
+
+            if (N1 == null)
+            {
+                return;
+            }
+
+            dn1 = Convert.ToDouble(N1);
+
+            N2 = Convert.ToDouble(textBox1.Text);
 
             if (D == "+")
             {
-                rez = dn1 + dn2;
+                rez = dn1 + N2;
             }
 
             if (D == "-")
             {
-                rez = dn1 - dn2;
+                rez = dn1 - N2;
             }
 
             if (D == "×")
             {
-                rez = dn1 * dn2;
+                rez = dn1 * N2;
             }
 
             if (D == "÷")
             {
-                rez = dn1 / dn2;
+                rez = dn1 / N2;
             }
-                       
+
             D = "=";
 
-            n2 = true;
+            n2Сheck = true;
 
             decimalPoint = false;
 
-            textBox1.Text = rez.ToString();
-                       
+            N2 = 0;
+
+            textBox1.Text = $"{rez:F2}";
         }
 
         private void button17_Click(object sender, EventArgs e)
         {
-            bool znak = true;
-
             if (znak == true)
             {
                 textBox1.Text = "-" + textBox1.Text;
 
                 znak = false;
             }
-            else 
+
             if (znak == false)
             {
                 textBox1.Text = textBox1.Text.Replace("-", "");
 
                 znak = true;
-
             }
         }
     }
 }
+
