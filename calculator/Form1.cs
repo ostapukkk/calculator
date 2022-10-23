@@ -30,7 +30,7 @@ namespace calculator
 
             decimalPoint = false;
 
-            znak = false;
+            znak = true;
 
             N2 = 0;
         }
@@ -91,6 +91,8 @@ namespace calculator
 
             N1 = textBox1.Text;
 
+            znak = true;
+
             decimalPoint = false;
 
             n2Сheck = true;
@@ -137,6 +139,8 @@ namespace calculator
 
             decimalPoint = false;
 
+            znak = true;
+
             N2 = 0;
 
             textBox1.Text = $"{rez:F2}";
@@ -150,8 +154,7 @@ namespace calculator
 
                 znak = false;
             }
-
-            if (znak == false)
+            else
             {
                 textBox1.Text = textBox1.Text.Replace("-", "");
 
@@ -160,4 +163,3 @@ namespace calculator
         }
     }
 }
-
